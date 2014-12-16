@@ -27,4 +27,4 @@ play2 = Playlist.create(name: 'Slow beats')
 
 Comment.delete_all
 
-Comment.create
+com1 = Comment.create
