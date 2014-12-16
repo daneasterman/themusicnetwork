@@ -11,7 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141215192409) do
+ActiveRecord::Schema.define(version: 20141215211904) do
+
+  create_table "comments", force: true do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "song_id"
+    t.integer  "playlist_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "playlists", force: true do |t|
+    t.string   "name"
+    t.integer  "comment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "playlists_songs", id: false, force: true do |t|
+    t.integer "song_id",     null: false
+    t.integer "playlist_id", null: false
+  end
+
+  create_table "playlists_users", id: false, force: true do |t|
+    t.integer "user_id",     null: false
+    t.integer "playlist_id", null: false
+  end
 
   create_table "songs", force: true do |t|
     t.string   "name"
@@ -38,6 +64,7 @@ ActiveRecord::Schema.define(version: 20141215192409) do
     t.integer  "song_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "comment_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

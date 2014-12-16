@@ -6,7 +6,7 @@ User model - devise. (create thru devise)
 - Name
 - song_id:integer
 - role:string
-- comment_id
+- comment_id [ADDED RETROSPECTIVELY!!] 
 
 
 Different user abilities - 
@@ -28,6 +28,7 @@ Playlist:
 =========
 - name:string
 - comment_id:integer
+- 
 
 Comment: 
 ========
@@ -35,16 +36,17 @@ Comment:
 - user_id:integer
 - song_id:integer
 - playlist_id:integer
+[Comment belongs to one user/artist/fan - user has many comments].
 
 
-
-JOIN TABLE 1: USER (Artist) / PLAYLIST.
+JOIN TABLE 1: USER (Artist) belongs to many playlists
+Playlists has many artists. / PLAYLIST.
 ==============================
-- rails g migration CreateJoinTableUserPlaylist
+- rails g migration CreateJoinTableUserPlaylist user playlist 
 
 JOIN TABLE 2: SONG / PLAYLIST
 =============================
-- rails g migration CreateJoinTableSongPlaylist  
+- rails g migration CreateJoinTableSongPlaylist song playlist
 
 
 
