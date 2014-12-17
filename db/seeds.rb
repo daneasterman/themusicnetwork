@@ -11,8 +11,10 @@
 # u1.songs
 # song1.user
 # p1 = Playlist.create!(name: 'Best UK Hip Hop')
-# p.songs = song1
-# p.songs.first.user
+# WRONG: p.songs = song1
+# WRONG: p.songs.first.user
+# p.songs << s1
+
 
 
 # User.delete_all

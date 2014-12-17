@@ -23,10 +23,13 @@
     <%= f.label :user_id %><br>
     <%= f.number_field :user_id %>
   </div>
-  <div class="field">
-    <%= f.label :comment_id %><br>
-    <%= f.number_field :comment_id %>
+
+   <div class="field">
+     <%= f.collection_check_boxes :playlist_ids, Playlist.all, :id, :name do |b| %>
+       <%= b.check_box + b.label { b.text } %><br>
+     <% end %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

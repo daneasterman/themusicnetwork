@@ -15,10 +15,15 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :comment_id %><br>
-    <%= f.number_field :comment_id %>
-  </div>
+
+  <div>
+     <% Song.all.each do |song| %>
+       <%= check_box_tag "playlist[songs_ids][]", song.id, @playlist.songs.include?(song), id: "playlist_song_ids_#{song.id}" %>
+       <%= f.label :song_ids, song.name, for: "playlist_song_ids_#{song.id}" %>
+       <br>
+     <% end %>
+  </div> 
+
   <div class="actions">
     <%= f.submit %>
   </div>

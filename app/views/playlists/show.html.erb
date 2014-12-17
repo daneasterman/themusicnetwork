@@ -6,9 +6,12 @@
 </p>
 
 <p>
-  <strong>Comment:</strong>
-  <%= @playlist.comment_id %>
+  <strong>Songs in this playlists:</strong><br>
+  <% @playlist.songs.each do |song| %>
+    <%= song.name %><br> 
+  <% end %>
 </p>
+
 
 <%= link_to 'Edit', edit_playlist_path(@playlist) %> |
 <%= link_to 'Back', playlists_path %>
