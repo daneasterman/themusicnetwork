@@ -16,13 +16,11 @@
     <%= f.text_field :name %>
   </div>
 
-  <div>
-     <% Song.all.each do |song| %>
-       <%= check_box_tag "playlist[songs_ids][]", song.id, @playlist.songs.include?(song), id: "playlist_song_ids_#{song.id}" %>
-       <%= f.label :song_ids, song.name, for: "playlist_song_ids_#{song.id}" %>
-       <br>
+   <div class="field">
+     <%= f.collection_check_boxes :song_ids, Song.all, :id, :name do |b| %>
+       <%= b.check_box + b.label { b.text } %><br>
      <% end %>
-  </div> 
+  </div>
 
   <div class="actions">
     <%= f.submit class: "button" %>

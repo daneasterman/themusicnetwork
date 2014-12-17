@@ -22,18 +22,38 @@ class PlaylistsController < ApplicationController
 
   def create
     @playlist = Playlist.new(playlist_params)
-    @playlist.save
-    respond_with(@playlist)
+    # @song = current_user.songs.new(song_params)
+    
+    respond_to do |format|
+      if @playlist.save
+        format.html { redirect_to @playlist }
+        format.json { render :show, status: :created, location: @song }
+      else
+        format.html { render :new }
+        format.json { render json: @playlist.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update
-    @playlist.update(playlist_params)
-    respond_with(@playlist)
+    respond_to do |format|
+      if @playlist.update(playlist_params)
+        format.html { redirect_to @playlist, notice: 'Playlist was successfully updated.' }
+        format.json { render :show, status: :ok, location: @song }
+      else
+        format.html { render :edit }
+        format.json { render json: @playlist.errors, status: :unprocessable_entity }
+      end
+    end 
   end
 
   def destroy
     @playlist.destroy
-    respond_with(@playlist)
+    respond_to do |format|
+      format.html { redirect_to playlists_url, notice: 'Playlist was successfully deleted.' }
+      format.json { head :no_content }
+    end
+    
   end
 
   private
@@ -42,6 +62,6 @@ class PlaylistsController < ApplicationController
     end
 
     def playlist_params
-      params.require(:playlist).permit(:name, :comment_id)
+      params.require(:playlist).permit(:name, { song_ids: []})
     end
 end

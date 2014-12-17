@@ -15,26 +15,20 @@
 # WRONG: p.songs.first.user
 # p.songs << s1
 
+User.delete_all
+
+user1 = User.create!(name: 'Daniel', role: 'admin', email:'test@today.now', password: 'password')
+user2 = User.create!(name: 'Sadiq', role: 'artist', email:'test2@today.now', password: 'password')
+user3 = User.create!(name: 'Joel', role: 'fan', email:'test3@today.now', password: 'password')
 
 
-# User.delete_all
+Song.delete_all
 
-# user1 = User.create!(name: 'Daniel', role: 'admin')
-# user2 = User.create!(name: 'Sadiq', role: 'artist')
-# user3 = User.create!(name: 'Joel', role: 'fan')
-
-
-# Song.delete_all
-
-# song1 = Song.create!(name: 'Life of the party')
-# song2 = Song.create!(name: 'Lonely Star', user_id: user2.id)
+song1 = Song.create!(name: 'Life of the party')
+song2 = Song.create!(name: 'Lonely Star')
 
 
-# Playlist.delete_all
+Playlist.delete_all
 
-# play1 = Playlist.create!(name: 'Best UK Hip Hop')
-# play2 = Playlist.create!(name: 'Slow beats')
-
-# Comment.delete_all
-
-# com1 = Comment.create
+play1 = Playlist.create!(name: 'Best UK Hip Hop')
+play2 = Playlist.create!(name: 'Slow beats')

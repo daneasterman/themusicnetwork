@@ -24,21 +24,27 @@
 
         <section class="top-bar-section">
           <!-- Right Nav Section -->
-          <ul class="right">
-            <li><%= link_to "Songs", songs_path %></li>
-            <li class="active"><a href="#">Right Button Active</a></li>
+          <ul class="right">            
+
+            <% if current_user %>
+            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+            <% else %>                          
+            
             <li class="has-dropdown">
-              <a href="#">Right Button Dropdown</a>
+              <a href="#">Join us</a>
               <ul class="dropdown">
-                <li><a href="#">First link in dropdown</a></li>
-                <li class="active"><a href="#">Active link in dropdown</a></li>
+                <li class="active"><%= link_to "Sign in", new_user_session_path %></li>
+                <li><%= link_to "Sign up", new_user_registration_path %></li>
               </ul>
             </li>
           </ul>
+          <% end %>
 
           <!-- Left Nav Section -->
           <ul class="left">
-            <li><%= link_to "Songs", songs_path %></li>
+            <li class="active"><%= link_to "Songs", songs_path %></li>
+            <li><%= link_to "Playlists", playlists_path %></li>
+
           </ul>
         </section>
       </nav>

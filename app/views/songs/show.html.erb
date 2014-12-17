@@ -21,6 +21,18 @@
   <%= @song.user_id %>
 </p>
 
+<%= form_for [@song, @song.comments.new] do |f| %>
+  <%= render partial: 'comments/form', locals: { f: f } %>
+  <%= f.submit 'Add Comment!' %>
+  <% end %>
+
+<% @song.comments.each do |comment| %>
+  <%= comment.comment %>
+  <br>
+  <p>Posted by: <%= comment.user.try :name %></p>
+  <hr>
+  <% end %>
+
 
 <%= link_to 'Edit', edit_song_path(@song) %> |
 <%= link_to 'Back', songs_path %>

@@ -22,10 +22,11 @@ class SongsController < ApplicationController
 
   def create
     @song = Song.new(song_params)
+    # @song = current_user.songs.new(song_params)
     
     respond_to do |format|
       if @song.save
-        format.html { redirect_to @song, notice: 'Song was successfully created.' }
+        format.html { redirect_to @song }
         format.json { render :show, status: :created, location: @song }
       else
         format.html { render :new }
@@ -43,13 +44,15 @@ class SongsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @song.errors, status: :unprocessable_entity }
       end
-    end
-    
+    end 
   end
 
   def destroy
     @song.destroy
-    respond_with(@song)
+    respond_to do |format|
+      format.html { redirect_to songs_url, notice: 'Song was successfully deleted.' }
+      format.json { head :no_content }
+    end
   end
 
   private
