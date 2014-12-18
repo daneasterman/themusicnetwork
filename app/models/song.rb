@@ -1,4 +1,6 @@
-class Song < ActiveRecord::Base
+class Song < ActiveRecord::Base  
+  mount_uploader :song_image, SongImageUploader
+  mount_uploader :song_audio, SongAudioUploader
 
   acts_as_commentable
 

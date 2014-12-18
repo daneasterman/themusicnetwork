@@ -15,10 +15,22 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+
   <div class="field">
-    <%= f.label :image_url %><br>
-    <%= f.text_field :image_url %>
+    <%= f.label :song_audio %><br>
+    <%= f.file_field :song_audio %>
   </div>
+
+  <div class="field">
+    <%= f.label :song_image %><br>
+    <%= f.file_field :song_image %>
+  </div>
+ 
+  <div>
+      <%= f.label :remote_song_image_url %>
+      <%= f.text_field :remote_song_image_url %>
+  </div>
+
    <div class="field">
      <%= f.collection_check_boxes :playlist_ids, Playlist.all, :id, :name do |b| %>
        <%= b.check_box + b.label { b.text } %><br>

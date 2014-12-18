@@ -5,16 +5,17 @@
   <%= @song.name %>
 </p>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @song.image_url %>
-</p>
+  <p><strong>Audio:</strong>
+  <%= audio_tag @song.song_audio.url, autoplay: false, controls: true %>
+  </p>
+
+  <p><strong>Image:</strong></p>
+  <%= image_tag @song.song_image.url %></p>
 
   <strong>Song appears in these playlists:</strong><br>
   <% @song.playlists.each do |playlist| %>
     <%= playlist.name %><br>
   <% end %>
-</p>
 
 <p>
   <strong>User:</strong>

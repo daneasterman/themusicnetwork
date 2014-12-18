@@ -61,6 +61,6 @@ class SongsController < ApplicationController
     end
 
     def song_params
-      params.require(:song).permit(:name, :image_url, :user_id, { playlist_ids: []})
+      params.require(:song).permit(:name, :song_image, :remote_song_image_url, :song_audio, :user_id, { playlist_ids: []})
     end
 end
