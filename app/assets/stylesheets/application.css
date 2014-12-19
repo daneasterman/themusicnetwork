@@ -15,3 +15,53 @@
  *= require foundation_and_overrides
 
  */
+
+header {
+  width: 100%;
+  background: #000000;
+}
+
+table {
+  width: 100%;
+}
+
+.fullwidth-image {
+  width: 100%;
+  min-height: 700px;
+  background: url('cityscape.jpg');
+  background-size: cover;
+}
+
+.fullwidth-image h1 {
+  color: #fff;
+  text-align: center;
+  line-height: 370px;
+  font-size: 8em;
+  font-family: impact;
+  text-transform: uppercase;
+}
+
+.fullwidth-image h4 {
+  color: #fff;
+  text-align: center;
+  font-size: 2em;
+  font-family: sans-serif;
+}
+
+.fullwidth-button {
+  margin-bottom: 3px;
+  padding: 1rem 2rem 1rem;
+  border: 0;
+  background-color: #fa4542; 
+  box-shadow: 0 3px 0 0 #be0201;
+  position:absolute;
+  top: 350px;
+  left: 525px;
+  font: 800 1.125rem/normal sans-serif
+}
+
+
+
+
+
+

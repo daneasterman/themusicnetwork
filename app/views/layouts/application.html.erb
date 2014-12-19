@@ -13,10 +13,10 @@
 
   <body>
     <header>
-      <nav class="top-bar" data-topbar role="navigation">
+      <nav class="top-bar row" data-topbar role="navigation">
         <ul class="title-area">
           <li class="name">
-            <h1><a href="#">The Music Network</a></h1>
+            <h1><%= link_to "The Music Network", root_path %></h1>
           </li>
            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
           <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -28,12 +28,12 @@
 
             <% if current_user %>
             <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-            <% else %>                          
+            <% else %>                       
             
             <li class="has-dropdown">
               <a href="#">Join us</a>
               <ul class="dropdown">
-                <li class="active"><%= link_to "Sign in", new_user_session_path %></li>
+                <li><%= link_to "Sign in", new_user_session_path %></li>
                 <li><%= link_to "Sign up", new_user_registration_path %></li>
               </ul>
             </li>
@@ -42,16 +42,29 @@
 
           <!-- Left Nav Section -->
           <ul class="left">
-            <li class="active"><%= link_to "Songs", songs_path %></li>
-            <li><%= link_to "Playlists", playlists_path %></li>
+            <li><%= link_to "Songs", songs_path %></li>
+            <li><%= link_to "Playlists", playlists_path %></li>            
+            <li><%= link_to "Profiles", profiles_path %></li>
 
           </ul>
         </section>
       </nav>
     </header>
+
+    <% if params[:controller] == "home" && params[:action] == "index" %>
+      <section class="fullwidth-image">
+        <h1>LDN. NOT NYC</h1>
+        <h4>The hip hop music network for London</h4>          
+      </section>
+      <div class="fullwidth-button"><%= link_to "Browse songs", songs_path %></div>
+
+
+
+    <% end %>
+  
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <main>
+    <main class="row">
       <%= yield %>
     </main>
     <footer></footer>

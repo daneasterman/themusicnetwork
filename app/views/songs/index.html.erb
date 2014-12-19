@@ -3,18 +3,19 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
       <th>Art</th>
+      <th>Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
+  <%= link_to 'New Song', new_song_path %>
+
   <tbody>
     <% @songs.each do |song| %>
       <tr>
+        <td><%= image_tag song.song_image.url, size: "100" %></td>
         <td><%= song.name %></td>
-        <td><%= image_tag song.song_image.url %></td>
-        <td><%= song.user_id %></td>
         <td><%= link_to 'Show', song %></td>
         <td><%= link_to 'Edit', edit_song_path(song) %></td>
         <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -25,4 +26,3 @@
 
 <br>
 
-<%= link_to 'New Song', new_song_path %>

@@ -17,10 +17,6 @@
     <%= playlist.name %><br>
   <% end %>
 
-<p>
-  <strong>User:</strong>
-  <%= @song.user_id %>
-</p>
 
 <%= form_for [@song, @song.comments.new] do |f| %>
   <%= render partial: 'comments/form', locals: { f: f } %>

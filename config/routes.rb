@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   resources :playlists
 
+  resources :profiles
+
   resources :songs do
     resources :comments
   end
@@ -14,5 +16,6 @@ Rails.application.routes.draw do
   
   root to: "home#index" 
 
+  get '/profile', to: 'profile#index'
 
 end
