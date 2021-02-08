@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 gem 'devise'
-gem 'carrierwave', '0.9.0'
+gem 'carrierwave', '1.3.2'
 gem 'acts_as_commentable'
 gem 'foundation-rails'
 gem 'rmagick'
